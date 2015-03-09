@@ -1,0 +1,84 @@
+{% extends '::layout.html.twig' %}
+
+{% block body -%}
+    <h1>Variant creation</h1>
+    <div class="well">
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+    {{ form_errors(form) }}
+    	<div class="form-group">
+    		{{ form_label(form.categoryId, 'Category Id', {'label_attr': {'class': 'col-sm-3 control-label'}} )}}
+
+    		{{ form_errors(form.categoryId) }}
+    		<div class="col-sm-4">
+    			{{ form_widget(form.categoryId, {'attr': {'class': 'form-control'}}) }}
+    		</div>
+    	</div>
+
+    	<div class="form-group">
+    		{{ form_label(form.productId, 'Product Id', {'label_attr': {'class': 'col-sm-3 control-label'}} )}}
+
+    		{{ form_errors(form.productId) }}
+    		<div class="col-sm-4">
+    			{{ form_widget(form.productId, {'attr': {'class': 'form-control'}}) }}
+    		</div>
+    	</div>
+
+    	<div class="form-group">
+    		{{ form_label(form.createdAt, 'Created At', {'label_attr': {'class': 'col-sm-3 control-label'}} )}}
+
+    		{{ form_errors(form.createdAt) }}
+    		<div class="col-sm-4">
+    			{{ form_widget(form.createdAt) }}
+    		</div>
+    	</div>
+
+    	<div class="form-group">
+    		{{ form_label(form.updatedAt, 'Updated At', {'label_attr': {'class': 'col-sm-3 control-label'}} )}}
+
+    		{{ form_errors(form.updatedAt) }}
+    		<div class="col-sm-4">
+    			{{ form_widget(form.updatedAt) }}
+    		</div>
+    	</div>
+
+    	<div class="form-group">
+    		{{ form_label(form.showFrom, 'Show From', {'label_attr': {'class': 'col-sm-3 control-label'}} )}}
+
+    		{{ form_errors(form.showFrom) }}
+    		<div class="col-sm-4">
+    			{{ form_widget(form.showFrom) }}
+    		</div>
+    	</div>
+
+    	<div class="form-group">
+    		{{ form_label(form.showTo, 'Show To', {'label_attr': {'class': 'col-sm-3 control-label'}} )}}
+
+    		{{ form_errors(form.showTo) }}
+    		<div class="col-sm-4">
+    			{{ form_widget(form.showTo) }}
+    		</div>
+    	</div>
+
+    	<div class="form-group">
+    		{{ form_label(form.specialPrice, 'Special Price', {'label_attr': {'class': 'col-sm-3 control-label'}} )}}
+
+    		{{ form_errors(form.specialPrice) }}
+    		<div class="col-sm-4">
+    			{{ form_widget(form.specialPrice, {'attr': {'class': 'form-control'}}) }}
+    		</div>
+    	</div>
+
+	    {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+
+	    {{ form_rest(form) }}
+	    {{ form_end(form) }}
+	    
+        <ul class="list-unstyled">
+		    <li>
+		        <a href="{{ path('variant') }}" class="btn btn-primary">
+		            Back to the list
+		        </a>
+		    </li>
+		</ul>
+	</div>
+{% endblock %}

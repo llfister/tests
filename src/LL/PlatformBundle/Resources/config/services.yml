@@ -1,0 +1,4 @@
+services:
+#    ll_platform.example:
+#        class: LL\PlatformBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

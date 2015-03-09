@@ -1,0 +1,60 @@
+{% extends '::layout.html.twig' %}
+
+{% block body -%}
+    <h1>Variant list</h1>
+    <ul class="list-unstyled">
+        <li>
+            <a href="{{ path('variant_new') }}" class="btn btn-primary pull-right">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Category id</th>
+                <th>Product id</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+                <th>Show</th>
+                <th>Special Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('variant_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.categoryId }}</td>
+                <td>{{ entity.productId }}</td>
+                <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                {% if (entity.showFrom|date('U') < date().format('U')) and (date().format('U')< entity.showTo|date('U')) %}
+                <td>1</td>
+                {% else %}
+                <td>0</td>
+                {% endif %}
+                <td>{{ entity.specialPrice }}</td>
+                <td>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="{{ path('variant_show', { 'id': entity.id }) }}" class="btn btn-primary">Show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('variant_edit', { 'id': entity.id }) }}" class="btn btn-primary">Edit</a>
+                    </li>
+                    <li>
+                        <form action="{{ path('variant_delete', { 'id': entity.id }) }}" method="post">
+                            <input type="hidden" name="_method" value="DELETE" />
+                            {{ form_widget(deleteForms[entity.id]) }}
+                        </form>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endblock %}

@@ -1,0 +1,31 @@
+{% extends '::layout.html.twig' %}
+
+{% block body -%}
+    <h1>Category creation</h1>
+    <div class="well">
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+    {{ form_errors(form) }}
+
+    	<div class="form-group">
+    		{{ form_label(form.name, 'Name', {'label_attr': {'class': 'col-sm-3 control-label'}} )}}
+
+    		{{ form_errors(form.name) }}
+    		<div class="col-sm-4">
+    			{{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+    		</div>
+    	</div>
+
+	    {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+        
+        <ul class="list-unstyled">
+		    <li>
+		        <a href="{{ path('category') }}" class="btn btn-primary">
+		            Back to the list
+		        </a>
+		    </li>
+		</ul>
+	</div>
+{% endblock %}

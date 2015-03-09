@@ -1,0 +1,71 @@
+variant:
+    path:     /variant
+    defaults: { _controller: LLPlatformBundle:Variant:index }
+
+variant_new:
+    path:     /variant/new
+    defaults: { _controller: LLPlatformBundle:Variant:new }
+
+variant_create:
+    path:     /variant/create
+    defaults: { _controller: LLPlatformBundle:Variant:create }
+
+variant_show:
+    path:     /variant/show/{id}
+    defaults: { _controller: LLPlatformBundle:Variant:show }
+    requirements:
+        id: \d+
+
+variant_edit:
+    path:     /variant/edit/{id}
+    defaults: { _controller: LLPlatformBundle:Variant:edit }
+    requirements:
+        id: \d+
+
+variant_update:
+    path:     /variant/update/{id}
+    defaults: { _controller: LLPlatformBundle:Variant:update }
+    requirements:
+        id: \d+
+
+variant_delete:
+    path:     /variant/delete/{id}
+    defaults: { _controller: LLPlatformBundle:Variant:delete }
+    requirements:
+        id: \d+
+
+category:
+    path:     /category
+    defaults: { _controller: LLPlatformBundle:Category:index }
+
+category_new:
+    path:     /category/new
+    defaults: { _controller: LLPlatformBundle:Category:new }
+
+category_create:
+    path:     /category/create
+    defaults: { _controller: LLPlatformBundle:Category:create }
+
+category_show:
+    path:     /category/show/{id}
+    defaults: { _controller: LLPlatformBundle:Category:show }
+    requirements:
+        id: \d+
+
+category_edit:
+    path:     /category/edit/{id}
+    defaults: { _controller: LLPlatformBundle:Category:edit }
+    requirements:
+        id: \d+
+
+category_update:
+    path:     /category/update/{id}
+    defaults: { _controller: LLPlatformBundle:Category:update }
+    requirements:
+        id: \d+
+
+category_delete:
+    path:     /category/delete/{id}
+    defaults: { _controller: LLPlatformBundle:Category:delete }
+    requirements:
+        id: \d+
